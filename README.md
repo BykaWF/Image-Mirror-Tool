@@ -22,6 +22,13 @@ Represents an image file and provides methods for reading from and writing to th
 
 Implements `java.util.concurrent.Callable`. Represents a task that mirrors a section of an image horizontally.
 
+### Example of mirroring 
+
+![Original Image](resources/image/leaf-original.jpg)
+
+![Flipped Image](resources/output/leaf-flipped.jpg)
+
+
 ## Usage
 
 1. **Clone the repository**:
