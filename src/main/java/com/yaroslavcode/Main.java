@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import static com.yaroslavcode.Path.FLIPPED_IMG_PATH;
+import static com.yaroslavcode.Path.MIRRORED_IMG_PATH;
 import static com.yaroslavcode.Path.SOURCE_PATH;
 
 public class Main {
@@ -21,7 +21,7 @@ public class Main {
 
 
         try(ExecutorService service = Executors.newFixedThreadPool(nThread)) {
-            List<FlipperTask> callableList = new ArrayList<>();
+            List<MirrorTask> callableList = new ArrayList<>();
             List<Future<Image>> futuresImg = new ArrayList<>();
 
             int totalHeight = image.getHeight();
@@ -30,22 +30,22 @@ public class Main {
             for (int i = 0; i < nThread; i++) {
                 int start = i * sectionHeight;
                 int end = (i == nThread - 1) ? totalHeight : start + sectionHeight;
-                callableList.add(new FlipperTask(image, start, end));
+                callableList.add(new MirrorTask(image, start, end));
             }
 
-            for (FlipperTask flipperTask : callableList){
-                Future<Image> imageFuture = service.submit(flipperTask);
+            for (MirrorTask mirrorTask : callableList){
+                Future<Image> imageFuture = service.submit(mirrorTask);
                 futuresImg.add(imageFuture);
             }
 
             BufferedImage finalImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
 
             for(Future<Image> future : futuresImg){
-                Image flippedPart = future.get();
-                BufferedImage partBufferedImg = flippedPart.getBufferedImage();
+                Image mirroredPart = future.get();
+                BufferedImage partBufferedImg = mirroredPart.getBufferedImage();
 
-                int startY = flippedPart.getStart();
-                int endY  = flippedPart.getBound();
+                int startY = mirroredPart.getStart();
+                int endY  = mirroredPart.getBound();
 
                 for(int row = startY; row < endY; row++){
                     for(int col = 0; col < image.getWidth(); col++){
@@ -56,7 +56,7 @@ public class Main {
 
             Image outputImg = new Image(finalImage);
 
-            outputImg.saveImageToFile(FLIPPED_IMG_PATH,"jpg");
+            outputImg.saveImageToFile(MIRRORED_IMG_PATH,"jpg");
 
 
         } catch (ExecutionException | InterruptedException e) {

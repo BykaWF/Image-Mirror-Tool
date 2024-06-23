@@ -73,7 +73,7 @@ public class Image {
     }
 
     public void saveImageToFile(Path path, String format) throws IOException {
-        File f = new File(Path.FLIPPED_IMG_PATH.getPath());
+        File f = new File(Path.MIRRORED_IMG_PATH.getPath());
 
         if (!f.getParentFile().exists())
             f.getParentFile().mkdirs();

@@ -3,14 +3,14 @@ package com.yaroslavcode;
 import java.awt.image.BufferedImage;
 import java.util.concurrent.Callable;
 
-public class FlipperTask implements Callable<Image> {
+public class MirrorTask implements Callable<Image> {
     private final Image originalImg;
     private final int start;
     private final int bound;
     private final int height;
     private final int width;
 
-    public FlipperTask(Image originalImg, int start, int bound) {
+    public MirrorTask(Image originalImg, int start, int bound) {
         this.originalImg = originalImg;
         this.start = start;
         this.bound = bound;
@@ -31,10 +31,10 @@ public class FlipperTask implements Callable<Image> {
             }
         }
 
-        Image flippedImg = new Image(bufferFlippedImg);
-        flippedImg.setStart(start);
-        flippedImg.setBound(bound);
-        return flippedImg;
+        Image mirroredImg = new Image(bufferFlippedImg);
+        mirroredImg.setStart(start);
+        mirroredImg.setBound(bound);
+        return mirroredImg;
     }
 
     private void swap(int[][] imgArr, int row, int col,int width) {

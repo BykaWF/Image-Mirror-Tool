@@ -2,7 +2,7 @@ package com.yaroslavcode;
 
 public enum Path {
     SOURCE_PATH("./resources/image/leaf-original.jpg"),
-    FLIPPED_IMG_PATH("./resources/output/leaf-flipped.jpg");
+    MIRRORED_IMG_PATH("./resources/output/leaf-flipped.jpg");
 
     private String SOURCE_FILE;
     Path(String source) {
