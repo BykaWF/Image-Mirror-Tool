@@ -18,7 +18,7 @@ Entry point of the application. It coordinates the multithreaded image mirroring
 
 Represents an image file and provides methods for reading from and writing to the file system. Also provides methods for converting between `BufferedImage` and integer arrays representing RGB values.
 
-### FlipperTask.java
+### MirrorTask.java
 
 Implements `java.util.concurrent.Callable`. Represents a task that mirrors a section of an image horizontally.
 
