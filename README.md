@@ -35,3 +35,5 @@ Implements `java.util.concurrent.Callable`. Represents a task that mirrors a sec
 
    ```bash
    git clone https://github.com/your-username/ImageMirrorTool.git
+
+2. **To add an image need to provide your ``SOURCE_PATH`` in the enum ``Path``, do not forget to provide ``MIRRORED_IMG_PATH``**
