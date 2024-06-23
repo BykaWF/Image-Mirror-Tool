@@ -56,7 +56,7 @@ public class Main {
 
             Image outputImg = new Image(finalImage);
 
-            outputImg.saveImageToFile(FLIPPED_IMG_PATH,"png");
+            outputImg.saveImageToFile(FLIPPED_IMG_PATH,"jpg");
 
 
         } catch (ExecutionException | InterruptedException e) {

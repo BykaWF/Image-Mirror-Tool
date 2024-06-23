@@ -1,8 +1,8 @@
 package com.yaroslavcode;
 
 public enum Path {
-    SOURCE_PATH("./resources/image/Landscape-Color.jpg"),
-    FLIPPED_IMG_PATH("./resources/output/Landscape-Color-Flipped.jpg");
+    SOURCE_PATH("./resources/image/leaf-original.jpg"),
+    FLIPPED_IMG_PATH("./resources/output/leaf-flipped.jpg");
 
     private String SOURCE_FILE;
     Path(String source) {
